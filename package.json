@@ -1,0 +1,23 @@
+{
+  "name": "oempartswidget",
+  "version": "1.0.0",
+  "description": "oem-parts widget ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/live-server --browser='Google Chrome'",
+    "prettier": "prettier"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleg578/oempartswidget.git"
+  },
+  "author": "Oleh Nahornyi",
+  "license": "",
+  "homepage": "https://github.com/oleg578/oempartswidgetwidget#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "@shopify/prettier-plugin-liquid": "^1.0.6",
+    "prettier": "^2.8.6"
+  }
+}

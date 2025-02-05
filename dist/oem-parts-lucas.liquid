@@ -1,0 +1,375 @@
+{% schema %}
+{
+  "name": "oem-parts-lucas",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "OEM Parts Header Title",
+      "default": "Select from our list of OEM Brands"
+    },
+    {
+      "type": "image_picker",
+      "id": "title_background_image",
+      "label": "Title background image",
+      "info": "2000 x 650px .jpg recommended"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "title_font_color",
+      "label": "Title font color",
+      "default": "#ff7801"
+    },
+    {
+      "type": "color",
+      "id": "hover_color",
+      "label": "Brand hover color",
+      "default": "rgba(255,120,1,.8)"
+    },
+    {
+      "type": "select",
+      "id": "title_text_align",
+      "label": "Title text align",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        },
+        {
+          "value": "justify",
+          "label": "Justify"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "brand_order",
+      "label": "Brands Order (comma separated)",
+      "default": "Polaris,Arctic Cat,Honda,Can-Am,Ski-Doo,Sea-Doo,CF-Moto,Bombardier,GEM"
+    },
+    {
+      "type": "html",
+      "id": "header",
+      "label": "Dynamic header html embed",
+      "info": "For dynamic header must be empty"
+    },
+    {
+      "type": "html",
+      "id": "footer",
+      "label": "Page footer html embed"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_arctic-cat",
+      "label": "Arctic Cat logo",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bg_arctic-cat",
+      "label": "Arctic Cat background",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_header_arctic-cat",
+      "label": "Arctic Cat header logo",
+      "info": "100px height .webp recommended"
+    },
+    {
+      "type": "color",
+      "id": "title_color_arctic-cat",
+      "label": "Title font color Arctic Cat",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_arctic-cat",
+      "label": "Title back color Arctic Cat",
+      "default": "#66BC29"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bombardier",
+      "label": "Bombardier logo",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bg_bombardier",
+      "label": "Bombardier background",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_header_bombardier",
+      "label": "Bombardier header logo",
+      "info": "100px height .webp recommended"
+    },
+    {
+      "type": "color",
+      "id": "title_color_bombardier",
+      "label": "Title font color Bombardier",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_bombardier",
+      "label": "Title back color Bombardier",
+      "default": "#66BC29"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_cf-moto",
+      "label": "CF-Moto logo",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bg_cf-moto",
+      "label": "CF-Moto background",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_header_cf-moto",
+      "label": "CF-Moto header logo",
+      "info": "100px height .webp recommended"
+    },
+    {
+      "type": "color",
+      "id": "title_color_cf-moto",
+      "label": "Title font color CF-Moto",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_cf-moto",
+      "label": "Title back color CF-Moto",
+      "default": "#66BC29"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_can-am",
+      "label": "Can-Am logo",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bg_can-am",
+      "label": "Can-Am background",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_header_can-am",
+      "label": "Can-Am header logo",
+      "info": "100px height .webp recommended"
+    },
+    {
+      "type": "color",
+      "id": "title_color_can-am",
+      "label": "Title font color Can-Am",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_can-am",
+      "label": "Title back color Can-Am",
+      "default": "#66BC29"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_gem",
+      "label": "GEM logo",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bg_gem",
+      "label": "GEM background",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_header_gem",
+      "label": "GEM header logo",
+      "info": "100px height .webp recommended"
+    },
+    {
+      "type": "color",
+      "id": "title_color_gem",
+      "label": "Title font color GEM",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_gem",
+      "label": "Title back color GEM",
+      "default": "#66BC29"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_honda",
+      "label": "Honda logo",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bg_honda",
+      "label": "Honda background",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_header_honda",
+      "label": "Honda header logo",
+      "info": "100px height .webp recommended"
+    },
+    {
+      "type": "color",
+      "id": "title_color_honda",
+      "label": "Title font color Honda",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_honda",
+      "label": "Title back color Honda",
+      "default": "#66BC29"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_polaris",
+      "label": "Polaris logo",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bg_polaris",
+      "label": "Polaris background",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_header_polaris",
+      "label": "Polaris header logo",
+      "info": "100px height .webp recommended"
+    },
+    {
+      "type": "color",
+      "id": "title_color_polaris",
+      "label": "Title font color Polaris",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_polaris",
+      "label": "Title back color Polaris",
+      "default": "#66BC29"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_sea-doo",
+      "label": "Sea-Doo logo",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bg_sea-doo",
+      "label": "Sea-doo background",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_header_sea-doo",
+      "label": "Sea-Doo header logo",
+      "info": "100px height .webp recommended"
+    },
+    {
+      "type": "color",
+      "id": "title_color_sea-doo",
+      "label": "Title font color Sea-Doo",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_sea-doo",
+      "label": "Title back color Sea-Doo",
+      "default": "#66BC29"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_ski-doo",
+      "label": "Ski-Doo logo",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_bg_ski-doo",
+      "label": "Ski-doo background",
+      "info": "480x270px .webp recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_logo_url_header_ski-doo",
+      "label": "Ski-Doo header logo",
+      "info": "100px height .webp recommended"
+    },
+    {
+      "type": "color",
+      "id": "title_color_ski-doo",
+      "label": "Title font color Ski-Doo",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_ski-doo",
+      "label": "Title back color Ski-Doo",
+      "default": "#66BC29"
+    }
+  ]
+}
+{% endschema %}
+
+<script type="text/javascript">
+  const pageSettings = {{ section.settings | json }}
+</script>
+<link rel="stylesheet" href="{{ 'oem-parts-test.css' | asset_url }}">
+<script src="{{ 'oem-parts-test.js' | asset_url }}" defer></script>
+<!-- widget view -->
+<div id="oemparts-widget-test" class="container--flush">
+    <div id="oemparts-widget-title-container">
+        <div id="oemparts-widget-title" class="container oem-parts-widget-header">
+            <h1 id="oemparts-widget-title-h1" class="oem-parts-widget-header-h1"></h1>
+        </div>
+    </div>
+    <div class="container">
+        <nav id="breadcrumbs-nav"></nav>
+        <div id="oemparts-widget-header"></div>
+        <div id="brandspad" class="hidden"></div>
+        <div id="equipments" class="hidden"></div>
+        <div id="oemparts-widget-footer" class="oem-parts-widget-footer"></div>
+    </div>
+</div>
+<!-- end widget view -->

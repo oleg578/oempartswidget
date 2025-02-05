@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "fitmentsearch": {
+      "type": "testing",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "oem-parts": {
+      "type": "oem-parts",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "fitmentsearch",
+    "oem-parts"
+  ]
+}

@@ -1,0 +1,683 @@
+{% schema %}
+{
+  "name": "oem-parts",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_heading",
+      "label": "Brand Page Heading",
+      "default": "OEM Part Browser"
+    },
+    {
+      "type": "text",
+      "id": "brand_prefix",
+      "label": "Brand Prefix",
+      "default": "myprefix"
+    },
+    {
+      "type": "text",
+      "id": "brand_suffix",
+      "label": "Brand Suffix",
+      "default": "mysuffix"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+#brandspad {
+max-width: 1700px;
+min-height: 50vh;
+display: grid;
+grid-auto-rows: min-content;
+place-items: center;
+background-color: #fff;
+}
+
+section#brands-container {
+width: 100%;
+display: grid;
+gap: 1rem;
+place-items: center;
+grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr) minmax(100px, 1fr);
+}
+
+@media (max-width: 768px) {
+section#brands-container {
+grid-template-columns: none;
+}
+}
+
+.brand-item {
+line-height: 1.3;
+}
+
+.brand-item > a:hover {
+cursor: pointer;
+color: #000000;
+}
+
+.brand-item__title {
+text-align: center;
+}
+
+.year-link-box {
+display: grid;
+place-items: center;
+min-width: 100px;
+}
+.year-link-box:hover {
+color: #ff7801;
+}
+a.year-link {
+border: 1px solid #afafaf;
+text-align: center;
+padding: 0 0.5rem;
+}
+a.year-link:hover {
+background-color: #ff7801;
+text-decoration: none;
+color: #0044ff;
+cursor: pointer;
+}
+
+div#year-row {
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+flex-direction: row;
+justify-content: flex-start;
+}
+
+#back-nav-link {
+width: 100%;
+}
+
+#back-nav-link a:hover {
+color: #000000;
+cursor: pointer;
+text-decoration: none;
+}
+
+.hidden {
+display: none !important;
+}
+
+#equipments {
+max-width: 1700px;
+width: 100%;
+min-height: 50vh;
+display: grid;
+grid-auto-rows: min-content;
+place-items: center start;
+background-color: #fff;
+}
+
+#nav {
+display: grid;
+width: 100%;
+place-items: start;
+padding: 0 2rem;
+top: 0;
+}
+
+#nav a {
+text-decoration: none;
+color: #3d3d3d;
+font-size: 1rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+text-align: left;
+}
+
+#nav a:hover {
+text-decoration: underline;
+color: #0044ff;
+}
+
+section#collections-container {
+width: 100%;
+padding: 1rem;
+max-width: 1700px;
+}
+
+.panel {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1rem;
+padding: 0;
+}
+
+.brand-item-link {
+word-wrap: break-word;
+word-break: break-all;
+font-size: 0.935rem;
+}
+
+a.brand-item-link:hover {
+color: #ff7801;
+}
+
+@media (max-width: 768px) {
+.panel {
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+gap: 0;
+padding: 0;
+}
+
+#nav a {
+text-align: center;
+}
+
+div#model-poster {
+display: none !important;
+}
+}
+
+div#model-poster {
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+grid-template-rows: repeat(1, 1fr);
+place-items: center;
+}
+
+div#model-poster img {
+grid-area: 1 / 1 / 1 / 1;
+}
+
+div#model-poster > h2 {
+font-size: 24px;
+grid-area: 1 / 1 / 1 / 1;
+z-index: 100;
+color: #000000;
+}
+
+p#invitation {
+max-width: 100vw;
+text-align: center;
+padding: 0 1rem;
+}
+
+/* accordion */
+.accordion {
+padding: 0 1rem;
+}
+
+.accordion-button {
+position: relative;
+display: flex;
+align-items: center;
+width: 100%;
+padding: 1rem 1.25rem 1rem 0;
+font-size: 1rem;
+text-align: left;
+background-color: #fff;
+border-bottom: 1px solid #ebebeb;
+border-top: 0;
+border-left: 0;
+border-right: 0;
+border-radius: 0;
+overflow-anchor: none;
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+border-radius 0.15s ease;
+}
+
+.active,
+.accordion-button:hover {
+cursor: pointer;
+}
+
+.models-panel {
+padding: 0;
+overflow: hidden;
+opacity: 1;
+height: auto;
+transition: height 0.33s ease-in-out, opacity 0.33s ease-in-out;
+}
+
+.accordion-button.active::after {
+transform: rotate(-180deg);
+}
+
+.collapsed {
+height: 0;
+visibility: collapse;
+opacity: 0;
+}
+
+.accordion-button > h3 {
+padding: 0;
+font-size: 1.5rem;
+margin: 0;
+color: #000;
+font-weight: 800;
+line-height: 1.5;
+}
+
+#breadcrumbs-nav {
+width: 100%;
+}
+
+#breadcrumbs-nav li:not(:first-child):before {
+content: ">";
+margin: 0 7px;
+}
+
+.inactive-link {
+pointer-events: none;
+}
+
+.collection-col-row {
+display: grid;
+gap: 0 1rem;
+grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(300px, 1fr);
+}
+
+@media (max-width: 768px) {
+.collection-col-row {
+grid-template-columns: none;
+}
+}
+
+.oem-parts-widget_title {
+margin-bottom: 5px;
+width: 100%;
+text-align: center;
+color: #505050;
+}
+
+img.brand-item-img {
+width: 100%;
+height: auto;
+}
+.brand-title-accordion {
+font-weight: 800;
+}
+{% endstylesheet %}
+
+{% javascript %}
+
+
+const fmtEndPoint = 'https://shop.com'
+
+let QueryTail = "";
+
+window.addEventListener("DOMContentLoaded", () => {
+init();
+});
+
+function UrlParseTail() {
+const url = new URL(window.location);
+url.searchParams.delete('brand');
+url.searchParams.delete('year');
+return url.searchParams.toString();
+}
+
+function init() {
+const searchParams = new URLSearchParams(window.location.search);
+const brand = searchParams.get('brand');
+const year = searchParams.get('year');
+QueryTail = UrlParseTail();
+if (brand && year) {
+new BrandCollections(brand, year);
+return
+}
+if (brand && !year) {
+new BrandYearsPad(brand);
+return
+}
+new BrandsPad();
+}
+
+class BrandsPad {
+brands = [];
+
+constructor() {
+this.getBrands().then((data) => this.brandsBuild(data));
+}
+
+async buildAlphabet(brands) {
+let abet = [];
+brands.forEach(el => {
+const mbr = el.charAt(0).toUpperCase();
+if (!abet.includes(mbr))
+abet.push(mbr);
+});
+return abet;
+}
+
+async brandsBuild(data) {
+try {
+if ('Response' in data) {
+this.brands = data.Response;
+}
+const abet = await this.buildAlphabet(this.brands);
+const widget = document.getElementById('brandspad');
+buildBreadCrumbs();
+const brandsContainer = document.createElement('section')
+brandsContainer.id = 'brands-container';
+abet.forEach(symbol => {
+const subBrands = this.brands.filter(v => v.startsWith(symbol));
+subBrands.forEach((brand) => {
+let brandItem = document.createElement("div");
+brandItem.className = "brand-item";
+const itemTitle = document.createElement("h2");
+itemTitle.className = "brand-item__title";
+itemTitle.classList.add("hidden");
+itemTitle.innerText = brand;
+brandItem.appendChild(itemTitle);
+const itemId = 'itemlink-' + brand.replace(/\s+/g, "_");
+const brandLink = document.createElement("a");
+brandLink.href = `?brand=${brand}`;
+if (QueryTail.length > 0) {
+brandLink.href += `&${QueryTail}`;
+}
+brandLink.id = itemId;
+brandLink.classList.add("brand-item-link");
+const brandImg = document.createElement("img");
+const brandPseudo = brand.replaceAll(" ", "-").toLowerCase();
+brandImg.src = `${fmtEndPoint}/img/logo/${brandPseudo}.webp`;
+brandImg.alt = brand;
+brandImg.classList.add("brand-item-img")
+brandImg.onerror = () => {
+brandImg.classList.add("hidden");
+brandLink.innerHTML = `<h2>${brand}</h2>`;
+}
+brandLink.appendChild(brandImg);
+brandItem.appendChild(brandLink);
+brandsContainer.appendChild(brandItem);
+});
+});
+widget.appendChild(brandsContainer);
+widget.classList.remove('hidden');
+} catch (error) {
+console.log("Error fetching brands: ", error);
+}
+}
+
+async getBrands() {
+const url = fmtEndPoint + '/brand/';
+return fetch(url)
+.then((response) => {
+return response.json();
+})
+}
+} //class Brandspad
+
+class BrandYearsPad {
+years = [];
+brand = '';
+
+constructor(brand) {
+this.brand = brand;
+console.log("brand years pad");
+this.getYearOffBrand(this.brand).then((r) => {
+this.years = r["Response"] ?? []
+this.buildYearsForBrand().then(() => {
+});
+});
+}
+
+getYearOffBrand(brand) {
+const url = fmtEndPoint + '/year/?brand=' + brand;
+return fetch(url)
+.then((response) => {
+return response.json();
+})
+}
+
+async buildYearsForBrand() {
+try {
+buildBreadCrumbs(this.brand);
+const widget = document.getElementById('brandspad');
+const brandTitle = document.createElement('h2');
+brandTitle.id = 'brand-title';
+brandTitle.innerText = this.brand;
+widget.appendChild(brandTitle);
+const yearRow = document.createElement('div');
+yearRow.id = 'year-row';
+this.years.forEach((year) => {
+const yearDiv = document.createElement('div');
+yearDiv.classList.add('year-link-box');
+const yLink = document.createElement('a');
+yLink.classList.add('year-link');
+yLink.href = `?brand=${this.brand}&year=${year}`;
+if (QueryTail.length > 0) {
+yLink.href += `&${QueryTail}`;
+}
+yLink.innerText = year;
+yearDiv.appendChild(yLink);
+yearRow.appendChild(yearDiv);
+});
+widget.appendChild(yearRow);
+widget.classList.remove('hidden');
+} catch (error) {
+console.log(`Error get years for ${this.brand}: `, error);
+}
+}
+} //class BrandYearsPad
+
+class BrandCollections {
+brand = '';
+year = '';
+data = [];
+
+constructor(brand, year) {
+this.brand = brand;
+this.year = year;
+this.data = [];
+const container = document.getElementById('equipments');
+buildBreadCrumbs(this.brand, this.year);
+const colContainer = document.createElement('section');
+colContainer.id = 'collections-container';
+container.appendChild(colContainer);
+this.getEquips(this.brand, this.year).then((r) => {
+this.data = r["Response"] ?? [];
+this.buildCollections();
+this.show();
+});
+const backLink = document.getElementById('back-nav-link');
+if (backLink !== null && backLink !== undefined) {
+if (QueryTail > 0) {
+backLink.href += `?${QueryTail}`;
+}
+}
+}
+
+show() {
+const m = document.getElementById('equipments');
+m.classList.remove('hidden');
+}
+
+async getEquips(brand, year) {
+const url = fmtEndPoint + `/equipmenttype/ext?brand=${brand}&year=${year}`;
+return fetch(url)
+.then((response) => {
+return response.json();
+})
+}
+
+toID(str) {
+return str.replaceAll(" ", '-').toLowerCase();
+}
+
+buildCollections() {
+const container = document.getElementById('collections-container');
+for (const brandName in this.data) {
+const models = this.data[brandName];
+const row = document.createElement('div');
+row.className = "accordion";
+const col = document.createElement('button');
+col.className = "accordion-button";
+const title = document.createElement('h2');
+title.id = this.toID(brandName);
+title.className = "brand-title-accordion";
+title.innerHTML = brandName;
+col.appendChild(title);
+row.appendChild(col);
+const modRow = document.createElement('div');
+modRow.className = "models-panel";
+modRow.classList.add('collection-col-row');
+if (window.innerWidth <= 768) {
+modRow.classList.add('collapsed');
+}
+models.forEach(model => {
+const collection = document.createElement('div');
+collection.className = "collection-col-model";
+let collection_link = `https://shop.com/collections/${model["Handle"]}`;
+if (QueryTail.length > 0) {
+collection_link += `?${QueryTail}`;
+}
+const cLink = document.createElement('a');
+cLink.dataset.make = this.brand;
+cLink.dataset.year = this.year;
+cLink.dataset.equipmenttype = brandName;
+cLink.dataset.model = model["Handle"];
+cLink.href = collection_link;
+cLink.classList.add("brand-item-link");
+cLink.target = "_self";
+cLink.innerHTML = `${model["Model"]}`
+cLink.addEventListener('click', (ev) => {
+this.saveToStorage(ev);
+});
+collection.appendChild(cLink);
+modRow.appendChild(collection);
+row.appendChild(modRow);
+});
+container.appendChild(row);
+}
+if (window.innerWidth <= 768) {
+this.buildAccordion();
+}
+}
+
+buildAccordion() {
+//get all accordion elements
+const accordions = document.querySelectorAll('.accordion');
+// for each accordion element set event listener
+for (let i = 0; i < accordions.length; i++) {
+let accordion = accordions[i];
+//get all buttons
+let button = accordion.querySelector('.accordion-button');
+// set panel event listener onclick
+button.addEventListener('click', function () {
+button.classList.toggle('active');
+for (let p = 0; p < accordions.length; p++) {
+if (p !== i) {
+let btn = accordions[p].querySelector('.accordion-button');
+if (btn.classList.contains('active')) {
+btn.classList.remove('active');
+}
+let panel = accordions[p].querySelector('.models-panel');
+if (!panel.classList.contains('collapsed')) {
+panel.classList.add('collapsed');
+}
+}
+}
+let curPanel = accordion.querySelector('.models-panel');
+curPanel.classList.toggle('collapsed');
+});
+}
+}
+
+saveToStorage(ev) {
+const fitment = {
+"year": ev.target.dataset.year,
+"make": ev.target.dataset.make,
+"equipmenttype": ev.target.dataset.equipmenttype,
+"model": ev.target.dataset.model
+}
+localStorage.setItem('FitmentSet', JSON.stringify(fitment));
+}
+} //class BrandCollections
+
+function buildBreadCrumbs(make = null, year = null) {
+const navContainer = document.getElementById('breadcrumbs-nav');
+if (navContainer == null) {
+console.log('Breadcrumbs container not found');
+return;
+}
+const breadcrumb = document.createElement('ol');
+breadcrumb.classList.add('breadcrumb__list');
+breadcrumb.setAttribute('role', 'list');
+const homeList = document.createElement('li');
+homeList.classList.add('breadcrumb__item');
+const homeListLink = document.createElement('a');
+homeListLink.classList.add('breadcrumb__link');
+homeListLink.classList.add('link');
+homeListLink.href = '/';
+if (QueryTail.length > 0) {
+homeListLink.href += `?${QueryTail}`;
+}
+homeListLink.innerText = 'Home';
+homeList.appendChild(homeListLink);
+breadcrumb.appendChild(homeList);
+const oemList = document.createElement('li');
+oemList.classList.add('breadcrumb__item');
+const oemListLink = document.createElement('a');
+oemListLink.classList.add('breadcrumb__link');
+oemListLink.classList.add('link');
+oemListLink.href = window.location.origin + window.location.pathname;
+if (make == null) {
+oemListLink.classList.add('inactive-link');
+}
+oemListLink.innerText = 'OEM Parts';
+if (QueryTail.length > 0) {
+oemListLink.href += `?${QueryTail}`;
+}
+oemList.appendChild(oemListLink);
+breadcrumb.appendChild(oemList);
+if (make != null) {
+const makeList = document.createElement('li');
+makeList.classList.add('breadcrumb__item');
+const makeListLink = document.createElement('a');
+makeListLink.classList.add('breadcrumb__link');
+makeListLink.classList.add('link');
+makeListLink.href = window.location.origin + window.location.pathname;
+makeListLink.href += `?brand=${make}`;
+makeListLink.innerText = make;
+if (QueryTail.length > 0) {
+makeListLink.href += `&${QueryTail}`;
+}
+if (year == null) {
+makeListLink.classList.add('inactive-link');
+}
+makeList.appendChild(makeListLink);
+breadcrumb.appendChild(makeList);
+}
+if (year != null) {
+const yearList = document.createElement('li');
+yearList.classList.add('breadcrumb__item');
+const yearListLink = document.createElement('a');
+yearListLink.classList.add('breadcrumb__link');
+yearListLink.classList.add('link');
+yearListLink.href = window.location.origin + window.location.pathname;
+yearListLink.href += `?brand=${make}&year=${year}`;
+yearListLink.innerText = year;
+if (QueryTail.length > 0) {
+yearListLink.href += `?${QueryTail}`;
+}
+yearListLink.classList.add('inactive-link');
+yearList.appendChild(yearListLink);
+breadcrumb.appendChild(yearList);
+}
+navContainer.appendChild(breadcrumb);
+}
+
+
+{% endjavascript %}
+
+<script>
+    const BrandPrefix = "{{ section.settings.brand_prefix}}";
+    const BrandSuffix = "{{ section.settings.brand_suffix}}";
+</script>
+
+<div class="container container--flush">
+    <nav id="breadcrumbs-nav"></nav>
+    <h1 class="oem-parts-widget_title">{{ section.settings.brand_heading }}</h1>
+    <div id="brandspad" class="hidden"></div>
+    <div id="equipments" class="hidden"></div>
+</div>

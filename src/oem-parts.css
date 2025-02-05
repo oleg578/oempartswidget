@@ -1,0 +1,323 @@
+#oemparts-widget-test #brandspad {
+    display: grid;
+    min-height: 36vh;
+    grid-auto-rows: min-content;
+    place-items: center;
+    background-color: #fff;
+}
+
+#oemparts-widget-test section#brands-container {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    grid-template-columns: minmax(180px,480px) minmax(180px,480px) minmax(180px,480px);
+}
+
+@media (max-width: 768px) {
+    #oemparts-widget-test section#brands-container {
+        grid-template-columns: none;
+    }
+}
+
+#oemparts-widget-test .brand-item {
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
+
+#oemparts-widget-test .brand-item > a:hover {
+    cursor: pointer;
+    color: #000000;
+}
+
+#oemparts-widget-test .brand-item__title {
+    text-align: center;
+}
+
+#oemparts-widget-test .year-link-box {
+    display: grid;
+    place-items: center;
+    min-width: 100px;
+}
+
+#oemparts-widget-test a.year-link {
+    border: 1px solid #afafaf;
+    text-align: center;
+    padding: 0 0.5rem;
+    color: #505050;
+}
+#oemparts-widget-test a.year-link:hover {
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
+
+#oemparts-widget-test div#year-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 1rem auto;
+}
+
+@media (max-width: 768px) {
+    #oemparts-widget-test div#year-row {
+        justify-content: center;
+    }
+}
+
+#oemparts-widget-test a.year-link:hover {
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#oemparts-widget-test #back-nav-link {
+    width: 100%;
+}
+
+#oemparts-widget-test #back-nav-link a:hover {
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#oemparts-widget-test .hidden {
+    display: none !important;
+}
+
+#oemparts-widget-test #equipments {
+    max-width: 1700px;
+    width: 100%;
+    display: grid;
+    min-height: 36vh;
+    grid-auto-rows: min-content;
+    place-items: center start;
+    background-color: #fff;
+}
+
+#oemparts-widget-test #nav {
+    display: grid;
+    width: 100%;
+    place-items: start;
+    padding: 0 2rem;
+    top: 0;
+}
+
+#oemparts-widget-test #nav a {
+    text-decoration: none;
+    color: #3d3d3d;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+#oemparts-widget-test #nav a:hover {
+    text-decoration: underline;
+    color: #0044ff;
+}
+
+#oemparts-widget-test section#collections-container {
+    width: 100%;
+    max-width: 1700px;
+}
+
+#oemparts-widget-test .panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 0;
+}
+
+#oemparts-widget-test .brand-item-link {
+    display: grid;
+    place-items: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 0.935rem;
+    background-color: rgba(0,0,0,.1);
+}
+
+#oemparts-widget-test a.brand-item-link:hover {
+    color: #242424;
+}
+
+#oemparts-widget-test .model-item-link {
+    display: grid;
+    place-items: center start;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 0.935rem;
+}
+
+#oemparts-widget-test a.model-item-link:hover {
+    color: #ff7801;
+}
+
+@media (max-width: 768px) {
+    #oemparts-widget-test .panel {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0;
+        padding: 0;
+    }
+
+    #oemparts-widget-test #nav a {
+        text-align: center;
+    }
+
+    #oemparts-widget-test div#model-poster {
+        display: none !important;
+    }
+}
+
+#oemparts-widget-test div#model-poster {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    place-items: center;
+}
+
+#oemparts-widget-test div#model-poster img {
+    grid-area: 1 / 1 / 1 / 1;
+}
+
+#oemparts-widget-test div#model-poster > h2 {
+    font-size: 24px;
+    grid-area: 1 / 1 / 1 / 1;
+    z-index: 100;
+    color: #000000;
+}
+
+#oemparts-widget-test p#invitation {
+    max-width: 100vw;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* accordion */
+#oemparts-widget-test .accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem 1rem 0;
+    font-size: 1rem;
+    text-align: left;
+    background-color: #fff;
+    border-bottom: 1px solid #ebebeb;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    border-radius 0.15s ease;
+}
+
+#oemparts-widget-test .active,
+#oemparts-widget-test .accordion-button:hover {
+    cursor: pointer;
+}
+
+#oemparts-widget-test .models-panel {
+    padding: 0;
+    overflow: hidden;
+    opacity: 1;
+    height: auto;
+    transition: height 0.33s ease-in-out, opacity 0.33s ease-in-out;
+}
+
+#oemparts-widget-test .accordion-button.active::after {
+    transform: rotate(-180deg);
+}
+
+#oemparts-widget-test .collapsed {
+    height: 0;
+    visibility: collapse;
+    opacity: 0;
+}
+
+#oemparts-widget-test .accordion-button > h3 {
+    padding: 0;
+    font-size: 1.5rem;
+    margin: 0;
+    color: #000;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+#oemparts-widget-test #breadcrumbs-nav {
+    width: 100%;
+    margin-bottom: .5rem;
+}
+#oemparts-widget-test #oemparts-widget-header {
+    margin-bottom: .5rem;
+}
+
+#oemparts-widget-test #breadcrumbs-nav li:not(:first-child):before {
+    content: ">";
+    margin: 0 7px;
+}
+
+#oemparts-widget-test .inactive-link {
+    pointer-events: none;
+}
+
+#oemparts-widget-test .collection-col-row {
+    display: grid;
+    gap: 0 1rem;
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(300px, 1fr);
+}
+
+@media (max-width: 768px) {
+    #oemparts-widget-test .collection-col-row {
+        grid-template-columns: none;
+    }
+}
+
+#oemparts-widget-test .oem-parts-widget_title {
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: center;
+    color: #505050;
+}
+
+#oemparts-widget-test img.brand-item-img {
+    width: 100%;
+    height: auto;
+}
+#oemparts-widget-test .brand-title-accordion {
+    font-weight: 800;
+}
+/* header section */
+#oemparts-widget-test #oemparts-widget-title {
+    background-size: cover;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    #oemparts-widget-test #oemparts-widget-title {
+        flex-direction: column;
+    }
+}
+#oemparts-widget-test #oemparts-widget-title-h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+#oemparts-widget-test #oemparts-widget-title-image {
+padding: 16px;
+}
+
+#oemparts-widget-test #oemparts-widget-footer {
+    padding: 1rem 0;
+}
